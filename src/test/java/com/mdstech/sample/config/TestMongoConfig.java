@@ -27,11 +27,13 @@ import java.util.Collections;
 public class TestMongoConfig {
 
     @Bean
+    @Primary
     public MongoTemplate mongoTemplate(MongoClient mongoClient) {
         return new MongoTemplate(mongoDbFactory(mongoClient));
     }
 
     @Bean
+    @Primary
     public MongoDbFactory mongoDbFactory(MongoClient mongoClient) {
         return new SimpleMongoDbFactory(mongoClient, "test");
     }
@@ -44,6 +46,7 @@ public class TestMongoConfig {
     }
 
     @Bean(destroyMethod="close")
+    @Primary
     public MongoClient mongoClient(MongoServer mongoServer) {
         return new MongoClient(new ServerAddress(mongoServer.getLocalAddress()));
     }

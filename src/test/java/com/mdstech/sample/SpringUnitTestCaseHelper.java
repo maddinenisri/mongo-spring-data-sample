@@ -15,7 +15,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-//@SpringBootTest(classes = Application.class)
+@SpringBootTest(classes = Application.class)
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {TestMongoConfig.class})
 @TestPropertySource("classpath:application-test.properties")
